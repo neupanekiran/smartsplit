@@ -1,12 +1,17 @@
 import React from 'react'
 import Navbar from './Navbar'
+import Dashboard from './dashboard/page'
 
-const page = () => {
+const Page = () => {
   return (
-    <div>
- <Navbar /> 
-    </div>
+    <>
+      <div>
+        hello na
+      </div>
+      <Dashboard/>
+      <Navbar />
+    </>
   )
 }
 
-export default page
+export default Page
