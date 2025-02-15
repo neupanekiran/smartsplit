@@ -12,10 +12,13 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      animation: {
+        "spin-slow": "spin 4s linear infinite",
+      },
     },
   },
   plugins: [require("daisyui")],
   daisyui: {
-    themes: ["nord", "dim"], // Add the themes here
+    themes: ["nord", "dim"],
   },
 };
