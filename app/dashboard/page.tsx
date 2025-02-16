@@ -3,6 +3,8 @@ import { Bar, Line, Doughnut } from 'react-chartjs-2';
 import 'chart.js/auto';
 import "tailwindcss/tailwind.css";
 import { useState, useEffect } from 'react';
+import Topbar from '../Topbar';
+import Navbar from '../Navbar';
 
 const Dashboard = () => {
     const [timeframe, setTimeframe] = useState('monthly');
@@ -83,6 +85,8 @@ const Dashboard = () => {
     ];
 
     return (
+        <>
+        <Topbar/>
         <div className="min-h-screen py-8 font-sans bg-base-200 text-base-content" data-theme={theme}>
             <div className="container mx-auto px-4">
                 {/* Header */}
@@ -280,6 +284,8 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
+        <Navbar/>
+        </>
     );
 };
 

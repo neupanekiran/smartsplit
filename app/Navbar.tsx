@@ -1,8 +1,10 @@
 "use client";
 import React, { useState, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation"; // Import useRouter for navigation
 import { FaHome, FaMap, FaPlus, FaHeart, FaUser } from "react-icons/fa";
 
 const Navbar = () => {
+  const router = useRouter();
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [activeIcon, setActiveIcon] = useState("home");
   const [lastActivity, setLastActivity] = useState(Date.now());
@@ -32,16 +34,17 @@ const Navbar = () => {
   }, [lastActivity, handleUserActivity]);
 
   const navigationItems = [
-    { id: "home", icon: FaHome, label: "Home" },
-    { id: "map", icon: FaMap, label: "Map" },
-    { id: "create", icon: FaPlus, label: "Create" },
-    { id: "favorites", icon: FaHeart, label: "Favorites" },
-    { id: "profile", icon: FaUser, label: "Profile" },
+    { id: "home", icon: FaHome, label: "Home", path: "/" },
+    { id: "map", icon: FaMap, label: "Map", path: "/dashboard" },
+    { id: "create", icon: FaPlus, label: "Create", path: "/group" },
+    { id: "favorites", icon: FaHeart, label: "Favorites", path: "/chatbot" },
+    { id: "profile", icon: FaUser, label: "Profile", path: "/profile" },
   ];
 
-  const handleClick = (id) => {
+  const handleClick = (id, path) => {
     setActiveIcon(id);
     handleUserActivity();
+    router.push(path); // Navigate to the page
   };
 
   return (
@@ -59,10 +62,10 @@ const Navbar = () => {
         />
       ) : (
         <div className="flex items-center justify-around h-full opacity-100 transition-opacity duration-300">
-          {navigationItems.map(({ id, icon: Icon, label }) => (
+          {navigationItems.map(({ id, icon: Icon, label, path }) => (
             <button
               key={id}
-              onClick={() => handleClick(id)}
+              onClick={() => handleClick(id, path)}
               className={`relative group flex items-center justify-center w-12 h-12 rounded-full transition-transform duration-300 focus:outline-none focus:ring-2 dark:focus:ring-slate-500 focus:ring-slate-500 ${
                 activeIcon === id
                   ? "text-white bg-[#575757] dark:bg-[#434448] transform scale-110"

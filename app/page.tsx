@@ -5,11 +5,7 @@ import Dashboard from './dashboard/page'
 const Page = () => {
   return (
     <>
-      <div>
-        hello na
-      </div>
       <Dashboard/>
-      <Navbar />
     </>
   )
 }

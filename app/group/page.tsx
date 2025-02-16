@@ -3,6 +3,7 @@ import { useState } from "react";
 import { FaBeer, FaCoffee, FaArrowLeft } from 'react-icons/fa'; // Example icons
 import { MdAlarm } from 'react-icons/md';
 import Navbar from "../Navbar";
+import Topbar from "../Topbar";
 const groupData = [
     { name: "Trip Expenses", status: "You Owe", amount: "₹500" },
     { name: "Dinner Split", status: "Your Pay", amount: "₹300" },
@@ -12,7 +13,8 @@ export default function GroupPage() {
   const groups = groupData;
   return (
     <>
-    <div className="min-h-screen py-6  flex justify-center">
+    <Topbar/>
+    <div className="min-h-screen py-6 w-full flex justify-center">
       <div className="container max-w-screen-md shadow-xl rounded-lg overflow-hidden">
         {selectedGroup !== null ? (
           <div className="flex flex-col h-full">
@@ -41,14 +43,14 @@ export default function GroupPage() {
                 {groups[selectedGroup].status}: {groups[selectedGroup].amount}
               </p>
               <div className="mt-4">
-                <p className="text-gray-700">Breakdown of expenses...</p>
+                <p className="">Breakdown of expenses...</p>
                 {/* Add detailed breakdown here */}
               </div>
             </div>
           </div>
         ) : (
           <div className="p-8">
-            <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
+            <h1 className="text-3xl font-bold text-center mb-6">
                Groups
             </h1>
             {groups.map((group, index) => (
