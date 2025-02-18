@@ -82,6 +82,6 @@ export default function GroupPage() {
         )}
       </div>
     </div>
-    <Navbar/></>
+    </>
   );
 }

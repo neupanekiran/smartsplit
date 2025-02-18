@@ -284,7 +284,7 @@ const Dashboard = () => {
                 </div>
             </div>
         </div>
-        <Navbar/>
+        <Topbar/>
         </>
     );
 };
